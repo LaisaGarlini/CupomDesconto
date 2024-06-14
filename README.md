@@ -1,17 +1,15 @@
-# Cupom Desconto
+# ✨ Cupom Desconto
 
-![GitHub repo size](https://img.shields.io/github/repo-size/LaisaGarlini/CupomDesconto?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/LaisaGarlini/CupomDesconto?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/LaisaGarlini/CupomDesconto?style=for-the-badge)
-![Bitbucket open issues](https://img.shields.io/bitbucket/issues/LaisaGarlini/CupomDesconto?style=for-the-badge)
-![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/LaisaGarlini/CupomDesconto?style=for-the-badge)
+
+<img src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge"/>
 
 <br>
 
 > Projeto desenvolvido durante as aulas da matéria de Programação Orientada a Objetos do curso de Sistemas de Informação da UNIDAVI. Este projeto consiste em uma página de cupons e descontos, composta por quatro entidades principais: Loja, Produto, Usuario e Cupom.
 
-      
-## 🤝 Colaboradores
+<br>
+
+## 🤝 Desenvolvedoras
 
 As seguintes pessoas contribuíram para este projeto:
 
