@@ -3,6 +3,7 @@ using System;
 using CupomDesconto.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CupomDesconto.Migrations
 {
     [DbContext(typeof(CupomDescontoContext))]
-    partial class CupomDescontoContextModelSnapshot : ModelSnapshot
+    [Migration("20240614011013_atualizar_tabela_cupom")]
+    partial class atualizar_tabela_cupom
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,18 +38,18 @@ namespace CupomDesconto.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("DataValidade")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
-                    b.Property<int>("LojaId")
+                    b.Property<int>("LojaID")
                         .HasColumnType("integer");
 
                     b.Property<decimal?>("Percentual_Desconto")
                         .HasColumnType("numeric");
 
-                    b.Property<int>("ProdutoId")
+                    b.Property<int>("ProdutoID")
                         .HasColumnType("integer");
 
-                    b.Property<int>("UsuarioId")
+                    b.Property<int>("UsuarioID")
                         .HasColumnType("integer");
 
                     b.Property<decimal?>("Valor_Desconto")
@@ -54,11 +57,11 @@ namespace CupomDesconto.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("LojaId");
+                    b.HasIndex("LojaID");
 
-                    b.HasIndex("ProdutoId");
+                    b.HasIndex("ProdutoID");
 
-                    b.HasIndex("UsuarioId");
+                    b.HasIndex("UsuarioID");
 
                     b.ToTable("Cupom");
                 });
@@ -129,19 +132,19 @@ namespace CupomDesconto.Migrations
                 {
                     b.HasOne("CupomDesconto.Models.Loja", "Loja")
                         .WithMany()
-                        .HasForeignKey("LojaId")
+                        .HasForeignKey("LojaID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("CupomDesconto.Models.Produto", "Produto")
                         .WithMany()
-                        .HasForeignKey("ProdutoId")
+                        .HasForeignKey("ProdutoID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("CupomDesconto.Models.Usuario", "Usuario")
                         .WithMany()
-                        .HasForeignKey("UsuarioId")
+                        .HasForeignKey("UsuarioID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

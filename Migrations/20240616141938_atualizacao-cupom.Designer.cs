@@ -3,6 +3,7 @@ using System;
 using CupomDesconto.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CupomDesconto.Migrations
 {
     [DbContext(typeof(CupomDescontoContext))]
-    partial class CupomDescontoContextModelSnapshot : ModelSnapshot
+    [Migration("20240616141938_atualizacao-cupom")]
+    partial class atualizacaocupom
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,7 +38,7 @@ namespace CupomDesconto.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("DataValidade")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<int>("LojaId")
                         .HasColumnType("integer");

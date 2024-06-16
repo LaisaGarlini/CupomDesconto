@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace CupomDesconto.Models
 {
@@ -20,21 +21,24 @@ namespace CupomDesconto.Models
         public DateTime? DataValidade { get; set; }
 
         [Required(ErrorMessage = "O ID do usuário é obrigatório")]
-        public int UsuarioID { get; set; }
+        public int UsuarioId { get; set; }
 
-        [ForeignKey("UsuarioID")]
+        //[ForeignKey("UsuarioID")]
+        [ValidateNever]
         public Usuario Usuario { get; set; }
 
         [Required(ErrorMessage = "O ID da loja é obrigatório")]
-        public int LojaID { get; set; }
+        public int LojaId { get; set; }
 
-        [ForeignKey("LojaID")]
+        //[ForeignKey("LojaID")]
+        [ValidateNever]
         public Loja Loja { get; set; }
 
         [Required(ErrorMessage = "O ID do produto é obrigatório")]
-        public int ProdutoID { get; set; }
+        public int ProdutoId { get; set; }
 
-        [ForeignKey("ProdutoID")]
+        //[ForeignKey("ProdutoID")]
+        [ValidateNever]
         public Produto Produto { get; set; }
-    }
+    } 
 }

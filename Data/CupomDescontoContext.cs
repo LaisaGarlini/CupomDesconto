@@ -13,6 +13,18 @@ namespace CupomDesconto.Data
         public DbSet<Produto> Produto { get; set; }
         public DbSet<Loja> Loja { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
-        public DbSet<CupomDesconto.Models.Cupom> Cupom { get; set; } = default!;
+        public DbSet<Cupom> Cupom { get; set; } = default!;
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Cupom>(entity =>
+            {
+                entity.Property(e => e.DataValidade)
+                      .HasColumnType("timestamp without time zone");
+            });
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

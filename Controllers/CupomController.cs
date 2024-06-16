@@ -50,9 +50,9 @@ namespace CupomDesconto.Controllers
         // GET: Cupom/Create
         public IActionResult Create()
         {
-            ViewData["LojaID"] = new SelectList(_context.Loja, "Id", "Nome");
-            ViewData["ProdutoID"] = new SelectList(_context.Produto, "Id", "Nome");
-            ViewData["UsuarioID"] = new SelectList(_context.Usuario, "Id", "Email");
+            ViewData["LojaId"] = new SelectList(_context.Loja, "Id", "Nome");
+            ViewData["ProdutoId"] = new SelectList(_context.Produto, "Id", "Nome");
+            ViewData["UsuarioId"] = new SelectList(_context.Usuario, "Id", "Email");
             return View();
         }
 
@@ -61,7 +61,7 @@ namespace CupomDesconto.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Codigo,Valor_Desconto,Percentual_Desconto,DataValidade,UsuarioID,LojaID,ProdutoID")] Cupom cupom)
+        public async Task<IActionResult> Create([Bind("Id,Codigo,Valor_Desconto,Percentual_Desconto,DataValidade,UsuarioId,LojaId,ProdutoId")] Cupom cupom)
         {
             if (ModelState.IsValid)
             {
@@ -69,9 +69,9 @@ namespace CupomDesconto.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["LojaID"] = new SelectList(_context.Loja, "Id", "Nome", cupom.LojaID);
-            ViewData["ProdutoID"] = new SelectList(_context.Produto, "Id", "Nome", cupom.ProdutoID);
-            ViewData["UsuarioID"] = new SelectList(_context.Usuario, "Id", "Email", cupom.UsuarioID);
+            ViewData["LojaId"] = new SelectList(_context.Loja, "Id", "Nome", cupom.LojaId);
+            ViewData["ProdutoId"] = new SelectList(_context.Produto, "Id", "Nome", cupom.ProdutoId);
+            ViewData["UsuarioId"] = new SelectList(_context.Usuario, "Id", "Email", cupom.UsuarioId);
             return View(cupom);
         }
 
@@ -88,9 +88,9 @@ namespace CupomDesconto.Controllers
             {
                 return NotFound();
             }
-            ViewData["LojaID"] = new SelectList(_context.Loja, "Id", "Nome", cupom.LojaID);
-            ViewData["ProdutoID"] = new SelectList(_context.Produto, "Id", "Nome", cupom.ProdutoID);
-            ViewData["UsuarioID"] = new SelectList(_context.Usuario, "Id", "Email", cupom.UsuarioID);
+            ViewData["LojaId"] = new SelectList(_context.Loja, "Id", "Nome", cupom.LojaId);
+            ViewData["ProdutoId"] = new SelectList(_context.Produto, "Id", "Nome", cupom.ProdutoId);
+            ViewData["UsuarioId"] = new SelectList(_context.Usuario, "Id", "Email", cupom.UsuarioId);
             return View(cupom);
         }
 
@@ -99,7 +99,7 @@ namespace CupomDesconto.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Codigo,Valor_Desconto,Percentual_Desconto,DataValidade,UsuarioID,LojaID,ProdutoID")] Cupom cupom)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Codigo,Valor_Desconto,Percentual_Desconto,DataValidade,UsuarioId,LojaId,ProdutoId")] Cupom cupom)
         {
             if (id != cupom.Id)
             {
@@ -126,9 +126,9 @@ namespace CupomDesconto.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["LojaID"] = new SelectList(_context.Loja, "Id", "Nome", cupom.LojaID);
-            ViewData["ProdutoID"] = new SelectList(_context.Produto, "Id", "Nome", cupom.ProdutoID);
-            ViewData["UsuarioID"] = new SelectList(_context.Usuario, "Id", "Email", cupom.UsuarioID);
+            ViewData["LojaId"] = new SelectList(_context.Loja, "Id", "Nome", cupom.LojaId);
+            ViewData["ProdutoId"] = new SelectList(_context.Produto, "Id", "Nome", cupom.ProdutoId);
+            ViewData["UsuarioId"] = new SelectList(_context.Usuario, "Id", "Email", cupom.UsuarioId);
             return View(cupom);
         }
 
