@@ -3,13 +3,12 @@
 @{
     ViewData["Title"] = "Delete";
 }
+<h4>Você deseja apagar este item?</h4>
 
-<h1>Apagar</h1>
-
-<h3>Você deseja apagar este item? Esta ação não pode ser desfeita.</h3>
+<h5>Esta ação não pode ser desfeita.</h5>
 <div>
-    <h4>Produto</h4>
-    <hr />
+   
+   
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Nome)
@@ -24,10 +23,11 @@
             @Html.DisplayFor(model => model.Preco)
         </dd>
     </dl>
-    
+    <br>
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Voltar para a listat</a>
+        <input type="submit" value="Apagar" class="btn btn-danger" /> 
+        <br>
+        <a asp-action="Index">Voltar para a lista</a>
     </form>
 </div>

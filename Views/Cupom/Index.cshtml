@@ -9,63 +9,46 @@
 <p>
     <a asp-action="Create">Cadastrar cupom</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Codigo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Valor_Desconto)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Percentual_Desconto)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataValidade)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Usuario)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Loja)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Produto)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Codigo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Valor_Desconto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Percentual_Desconto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataValidade)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Usuario.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Loja.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Produto.Nome)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Apagar</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="cupons">
+    @foreach (var item in Model)
+    {
+        <div class="cupom">
+            <div class="cupom-descricao">
+                <div class="cupom-descricao-titulo">
+                    <p>@Html.DisplayFor(modelItem => item.Loja.Nome)</p>
+                </div>
+                <div class="cupom-descricao-valor">
+                    @if (item.Valor_Desconto.HasValue)
+                    {
+                        <p>R$ @Html.DisplayFor(modelItem => item.Valor_Desconto) </p>
+                    }
+                </div>
+                <div class="cupom-descricao-valor">
+                    @if (item.Percentual_Desconto.HasValue)
+                    {
+                        <p> @Html.DisplayFor(modelItem => item.Percentual_Desconto) %</p>
+                    }
+                </div>
+
+                <div class="cupom-descricao-validade">
+                    @if (item.DataValidade.HasValue)
+                    {
+                        <p>Valor: @Html.DisplayFor(modelItem => item.DataValidade) %</p>
+                    }
+                </div>
+
+                <div class="cupom-descricao-codigo">
+                    <p>@Html.DisplayFor(modelItem => item.Codigo)</p>
+                </div>
+                <div class="cupom-descricao-regra">
+                    <p>@Html.DisplayFor(modelItem => item.DataValidade)</p>
+                </div>
+                <div class="cupom-descricao-botoes">
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Editar</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Detalhes</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Apagar</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
