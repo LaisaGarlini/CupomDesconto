@@ -1,5 +1,10 @@
+* {
+    font-family: "League Spartan", sans-serif;
+   
+}
+
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
@@ -16,7 +21,9 @@ html {
   position: relative;
   min-height: 100%;
 }
-
+nav {
+    background-color: #F1EFE7;
+}
 body {
   margin-bottom: 60px;
 }
@@ -39,7 +46,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
     .cupom:hover {
-        transform: rotateX(7deg) translateY(-9px);
+        transform: rotateX(3deg) translateY(-3px);
         -webkit-transition: -webkit-filter 0.6s, -webkit-transform 0.6s;
         -moz-transition: -moz-filter 0.6s, -moz-transform 0.6s;
         -o-transition: -o-filter 0.6s, -o-transform 0.6s;
@@ -141,3 +148,12 @@ body {
   bottom: 100px;
   padding: 10px; 
 }
+
+.cadastrarBotao{
+    text-decoration: none;
+    color: black;
+}
+
+    .cadastrarBotao:hover {
+        color:#706E6E;
+    }
